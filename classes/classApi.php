@@ -6,6 +6,12 @@ class Api{
         @$this->api_key = intval($_GET['api_key']);
     }
     
+    
+    /*
+     * Проверяем, существует ли клиентский API, 
+     * который постоянно передаётся с запросом.
+     * В противном случае - exit
+     */
     public function validate_api_key(){
         if (!$this->api_key) Core::error_msg('Не указан ключ API');
         
@@ -20,19 +26,5 @@ class Api{
         if ($otvet_api !== 1) Core::error_msg('Заданого API ключа не существует');
     }
     
-    public function route(){
-        if (!isset($_GET['route'])) Core::error_msg('Ошибка роутинга');
-        
-        $router = $_GET['route'];
-        
-        switch ($router) {
-            case 'add':
-                    require_once Conf::$work_dir . '/core/add/index.php';
-                break;
-            
-            default:
-                
-                break;
-        }
-    }
+
 }

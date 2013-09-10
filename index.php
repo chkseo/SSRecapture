@@ -29,7 +29,13 @@ $core = new Core();
 
 DB::get_connect();
 
+/*
+ * Проверяем существование и валидность API ключа
+ */
 $API = new Api();
 $API->validate_api_key();
 
-$API->route();
+/*
+ * Производим роутинг
+ */
+$core->route();

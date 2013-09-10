@@ -1,7 +1,6 @@
 <?php
 class Conf
 {
-    
     public static $work_dir;
     public static $tpl_dir;
     
